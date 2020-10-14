@@ -1,10 +1,10 @@
-@extends('layout.master')
+@extends('layout.layout')
 
 @section('content')
       <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">Judul</h1>
+        <h1 class="mt-4">{{$article->title}}</h1>
 
         <!-- Author -->
         <p class="lead">
@@ -15,21 +15,19 @@
         <hr>
 
         <!-- Date/Time -->
-        <p>Posted on January 1, 2019 at 12:00 PM</p>
+        <p>{{$article->created_at}}</p>
 
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+        <img class="card-img-top" src="{{ $article->featured_image }}" alt="Card image cap">
 
         <hr>
 
         <!-- Post Content -->
-        <p class="lead">Halaman ini adalah halaman artikel dengan {{$id}}</p>
+        <p class="lead">Halaman ini adalah halaman artikel dengan ID = {{$article->id}}</p>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+        <p> {{$article->content}} </p>
 
         <blockquote class="blockquote">
           <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>

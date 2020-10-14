@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/', 'HomeController@home');
-Route::get('/about', 'AboutController@about');
+Route::get('/', 'HomeController@home')->name('home');
+Route::get('/home', 'HomeController@home');
+Route::get('/about', 'AboutController@about')->name('about');
 Route::get('/articles/{id}', 'ArticleController@artikel');

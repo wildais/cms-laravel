@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layout.master')
 
 @section('content')
       <div class="col-lg-8">

@@ -38,3 +38,10 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+Route::get('/manage', 'ArticleController@index')->name('manage');
+Route::get('/article/add','ArticleController@add');
+Route::post('/article/create','ArticleController@create');
+Route::get('/article/edit/{id}','ArticleController@edit');
+Route::post('/article/update/{id}','ArticleController@update');
+Route::get('/article/delete/{id}','ArticleController@delete');

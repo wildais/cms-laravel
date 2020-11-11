@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Gate;
 
 class ArticleController extends Controller
 {
@@ -13,6 +14,15 @@ class ArticleController extends Controller
     //     return view('article',['article' => $article]);
     // }
     
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+            if(Gate::allows('manage-articles')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
+
     public function artikel($id)
     {
         $article = Cache::remember("article:$id", 60, function () use ($id) {

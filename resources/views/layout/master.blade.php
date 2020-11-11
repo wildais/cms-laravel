@@ -31,13 +31,19 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
+                @can('user-display')
                 <a class="nav-link" href="{{ route('home') }}">Home</a>
+                @endcan
             </li>
             <li class="nav-item {{ Route::is('about') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('about') }}">About</a>
+                @can('user-display')
+                <a class="nav-link" href="{{ route('about') }}">About</a>
+                @endcan
             </li>
             <li class="nav-item {{ Route::is('manage') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('manage') }}">Kelola</a>
+                @can('manage-articles')
+                <a class="nav-link" href="{{ route('manage') }}">Kelola</a>
+                @endcan
             </li>
             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

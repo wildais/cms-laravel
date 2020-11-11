@@ -16,13 +16,13 @@
 // });
 
 //Route::get('/', 'HomeController@home')->name('home');
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
 
 //Route::get('/home', 'HomeController@home');
 Route::get('/about', 'AboutController@about')->name('about');
 Route::get('/articles/{id}', 'ArticleController@artikel');
 //Auth::routes();
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
